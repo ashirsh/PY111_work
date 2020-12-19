@@ -4,6 +4,9 @@ My little Stack
 from typing import Any
 
 
+my_stack = []  # вершина справа
+
+
 def push(elem: Any) -> None:
     """
     Operation that add element to stack
@@ -11,7 +14,7 @@ def push(elem: Any) -> None:
     :param elem: element to be pushed
     :return: Nothing
     """
-    print(elem)
+    my_stack.append(elem)
     return None
 
 
@@ -21,7 +24,12 @@ def pop() -> Any:
 
     :return: popped element
     """
-    return None
+    if len(my_stack):
+        elem = my_stack[-1]
+        my_stack.pop()
+        return elem
+    else:
+        return None
 
 
 def peek(ind: int = 0) -> Any:
@@ -31,8 +39,10 @@ def peek(ind: int = 0) -> Any:
     :param ind: index of element (count from the top, 0 - top, 1 - first from top, etc.)
     :return: peeked element or None if no element in this place
     """
-    print(ind)
-    return None
+    if ind < len(my_stack):
+        return my_stack[-1 - ind]
+    else:
+        return None
 
 
 def clear() -> None:
@@ -41,4 +51,19 @@ def clear() -> None:
 
     :return: None
     """
+    my_stack.clear()
     return None
+
+
+if __name__ == '__main__':
+    print(my_stack)
+    push(0)
+    print(my_stack)
+    push(1)
+    print(my_stack)
+    print(pop())
+    print(my_stack)
+    print(peek(0))
+    print(peek(1))
+    print(pop())
+    print(pop())
