@@ -28,7 +28,7 @@ def dequeue() -> Any:
     """
     if p_queue:
         p_queue.sort(key=lambda x: x[1])
-        return p_queue.pop(0)
+        return p_queue.pop(0)[0]
     return None
 
 
@@ -41,7 +41,7 @@ def peek(ind: int = 0, priority: int = 0) -> Any:
     """
     pq = list(filter(lambda x: x[1] == priority, p_queue))
     if ind < len(pq):
-        return pq[ind]
+        return pq[ind][0]
     return None
 
 
