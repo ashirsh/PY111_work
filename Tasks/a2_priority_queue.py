@@ -27,8 +27,8 @@ def dequeue() -> Any:
     :return: dequeued element
     """
     if p_queue:
-        pq = sorted(p_queue, key=lambda x: x[1])
-        return pq.pop(0)
+        p_queue.sort(key=lambda x: x[1])
+        return p_queue.pop(0)
     return None
 
 
@@ -39,7 +39,7 @@ def peek(ind: int = 0, priority: int = 0) -> Any:
     :param ind: index of element (count from the beginning)
     :return: peeked element
     """
-    pq = list(filter(lambda x: x[1] == priority))
+    pq = list(filter(lambda x: x[1] == priority, p_queue))
     if ind < len(pq):
         return pq[ind]
     return None
@@ -53,3 +53,21 @@ def clear() -> None:
     """
     p_queue.clear()
     return None
+
+
+if __name__ == '__main__':
+    enqueue(11, 0)
+    print(p_queue)
+    enqueue(10, 1)
+    print(p_queue)
+    enqueue(10, 0)
+    enqueue(11, 1)
+    print(p_queue)
+    p_queue.sort(key=lambda x: x[1])
+    print(p_queue)
+    print(dequeue())
+    print(p_queue)
+    print(peek(1, 1))
+    print(p_queue)
+    clear()
+    print(p_queue)
