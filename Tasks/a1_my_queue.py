@@ -25,9 +25,7 @@ def dequeue() -> Any:
     :return: dequeued element
     """
     if my_queue:
-        elem = my_queue[0]
-        my_queue.pop(0)
-        return elem
+        return my_queue.pop(0)
     return None
 
 
