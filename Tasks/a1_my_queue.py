@@ -4,6 +4,9 @@ My little Queue
 from typing import Any
 
 
+my_queue = []  # конец очереди справа
+
+
 def enqueue(elem: Any) -> None:
     """
     Operation that add element to the end of the queue
@@ -11,7 +14,7 @@ def enqueue(elem: Any) -> None:
     :param elem: element to be added
     :return: Nothing
     """
-    print(elem)
+    my_queue.append(elem)
     return None
 
 
@@ -21,6 +24,10 @@ def dequeue() -> Any:
 
     :return: dequeued element
     """
+    if my_queue:
+        elem = my_queue[0]
+        my_queue.pop(0)
+        return elem
     return None
 
 
@@ -31,7 +38,8 @@ def peek(ind: int = 0) -> Any:
     :param ind: index of element (count from the beginning)
     :return: peeked element
     """
-    print(ind)
+    if ind < len(my_queue):
+        return my_queue[ind]
     return None
 
 
@@ -41,4 +49,17 @@ def clear() -> None:
 
     :return: None
     """
+    my_queue.clear()
     return None
+
+
+if __name__ == '__main__':
+    enqueue(0)
+    enqueue(1)
+    enqueue(2)
+    print(dequeue())
+    print(my_queue)
+    print(peek(1))
+    print(my_queue)
+    print(dequeue())
+    print(my_queue)
