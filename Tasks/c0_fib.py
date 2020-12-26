@@ -22,9 +22,16 @@ def fib_iterative(n: int) -> int:
     :param n: number of item
     :return: Fibonacci number
     """
-    print(n)
-    return 0
+    fib = [0, 1]
+    if n < 0:
+        raise ValueError
+    if n > 1:
+        for i in range(1, n):
+            item = fib[i-1] + fib[i]
+            fib.append(item)
+    return fib[n]
 
 
 if __name__ == '__main__':
     print(fib_recursive(7))
+    print(fib_iterative(7))
