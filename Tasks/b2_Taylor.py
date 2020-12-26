@@ -32,10 +32,14 @@ def sinx(x: Union[int, float]) -> float:
     :return: sin(x) value
     """
     def elem(n):
-        return -1 ** n * (x ** (2 * n + 1) / factorial(2 * n + 1))
+        return (-1) ** n * (x ** (2 * n + 1)) / (factorial(2 * n + 1))
 
     sum_, count_ = 0, 0
-    while elem(count_) > Delta:
+    while abs(elem(count_)) > Delta:
         sum_ += elem(count_)
         count_ += 1
     return sum_
+
+
+if __name__ == '__main__':
+    print(sinx(30))
