@@ -8,4 +8,15 @@ def sort(container: List[int]) -> List[int]:
     :param container: container of elements to be sorted
     :return: container sorted in ascending order
     """
+
+    for i in range(len(container)-1):
+        for j in range(len(container)-i-1):
+            if container[j+1] < container[j]:
+                container[j+1], container[j] = container[j], container[j+1]
+
     return container
+
+
+if __name__ == '__main__':
+    lst = [1, 3, 4, 5, 2, 8, 5, 0, 9, 6, 7, 0]
+    print(sort(lst))
