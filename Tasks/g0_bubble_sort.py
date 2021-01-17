@@ -3,9 +3,9 @@ from typing import List
 
 def sort(container: List[int]) -> List[int]:
     """
-    Sort input container with bubble sort
+    Sort input _list with bubble sort
 
-    :param container: container of elements to be sorted
-    :return: container sorted in ascending order
+    :param container: _list of elements to be sorted
+    :return: _list sorted in ascending order
     """
     return container
